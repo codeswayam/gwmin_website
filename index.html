@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -16,13 +16,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            bg: '#05070a',
-                            surface: '#0d1117',
-                            border: '#1f2937',
-                            accent: '#3b82f6', // Cobalt
-                            success: '#10b981', // Emerald
-                            text: '#e5e7eb',
-                            muted: '#9ca3af'
+                            bg: '#000000',
+                            surface: '#0a0a0a',
+                            border: '#1a1a1a',
+                            accent: '#ffffff', 
+                            muted: '#71717a',
+                            text: '#f4f4f5'
                         }
                     },
                     fontFamily: {
@@ -36,44 +35,39 @@
     </script>
     <style>
         body {
-            background-color: #05070a;
-            color: #e5e7eb;
+            background-color: #000000;
+            color: #f4f4f5;
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
         .scanline {
             width: 100%;
-            height: 2px;
+            height: 1px;
             z-index: 100;
-            background: rgba(0, 0, 0, 0.1);
-            opacity: 0.1;
+            background: rgba(255, 255, 255, 0.03);
             position: fixed;
             bottom: 100%;
-            animation: scanline 10s linear infinite;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
         }
         @keyframes scanline {
             0% { bottom: 100%; }
             100% { bottom: 0%; }
         }
         .tech-border {
-            border: 1px solid #1f2937;
-        }
-        .mono-header {
-            font-family: 'Fira Code', monospace;
-            letter-spacing: -0.05em;
+            border: 1px solid #1a1a1a;
         }
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #05070a;
+            background: #000000;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 10px;
+            background: #1a1a1a;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #3b82f6;
+            background: #ffffff;
         }
     </style>
 <script type="importmap">

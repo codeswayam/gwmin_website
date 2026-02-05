@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Terminal, Shield, Cpu, ArrowRight, Github } from 'lucide-react';
+import { Shield, Cpu, ArrowRight, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import projectsData from '../data/projects';
 
@@ -10,52 +10,51 @@ export const Home: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-24">
       {/* Hero */}
-      <section className="min-h-[70vh] flex flex-col justify-center border-l border-brand-border pl-8 relative">
-        <div className="absolute top-0 left-[-5px] w-2 h-2 bg-brand-accent"></div>
+      <section className="min-h-[60vh] flex flex-col justify-center border-l border-brand-border pl-8 relative">
+        <div className="absolute top-0 left-[-3px] w-1.5 h-1.5 bg-brand-accent"></div>
         
-        <div className="space-y-6">
-          <div className="font-mono text-xs text-brand-accent flex items-center space-x-2">
-            <span className="animate-pulse inline-block w-2 h-2 rounded-full bg-brand-accent"></span>
-            <span>SYSTEM_ONLINE // DEPLOYED_TO_PROD</span>
+        <div className="space-y-8">
+          <div className="font-mono text-[10px] text-brand-muted flex items-center space-x-2 tracking-widest uppercase">
+            <span className="inline-block w-1.5 h-1.5 bg-brand-accent"></span>
+            <span>SYSTEM_READY // SOURCE_VERIFIED</span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
             Secure <br />
-            <span className="text-brand-accent">Backend</span> <br />
-            Architect
+            Backend <br />
+            <span className="text-brand-muted/20 hover:text-brand-accent transition-colors duration-500 cursor-default">Architect</span>
           </h1>
           
-          <p className="max-w-xl text-brand-muted text-lg leading-relaxed border-l-2 border-brand-border pl-6 italic">
-            I engineer high-availability systems with a zero-trust mindset. 
-            Specializing in distributed security and protocol research.
+          <p className="max-w-lg text-brand-muted text-base leading-relaxed border-l border-brand-border pl-6 font-mono">
+            Engineering robust systems with zero-trust protocols and hardened architectures. 
+            Focus: High-concurrency Go and Cybersecurity Research.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link to="/projects" className="bg-brand-accent text-brand-bg px-8 py-3 font-mono text-sm font-bold flex items-center space-x-3 hover:opacity-90 transition-all">
-              <span>INIT_ENGINEERING_DATA</span>
-              <ArrowRight size={16} />
+          <div className="flex flex-wrap gap-4 pt-6">
+            <Link to="/projects" className="bg-brand-accent text-brand-bg px-8 py-3 font-mono text-xs font-bold flex items-center space-x-3 hover:bg-brand-muted transition-all">
+              <span>INIT_SYSTEM_PROBE</span>
+              <ArrowRight size={14} />
             </Link>
-            <Link to="/contact" className="border border-brand-border px-8 py-3 font-mono text-sm font-bold flex items-center space-x-3 hover:bg-white/5 transition-all">
-              <span>ESTABLISH_COMM_CHANNEL</span>
+            <Link to="/contact" className="border border-brand-border px-8 py-3 font-mono text-xs font-bold flex items-center space-x-3 hover:bg-white/5 transition-all">
+              <span>SECURE_CONTACT</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Quick Stats / Highlights */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Quick Stats */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          { label: "SECURITY_SCORE", value: "A+", icon: Shield },
-          { label: "BACKEND_STACK", value: "REST/gRPC", icon: Cpu },
-          { label: "GITHUB_COMMITS", value: "1.2K+", icon: Github }
+          { label: "SECURITY_AUDIT", value: "PASSED", icon: Shield },
+          { label: "CORE_SYSTEMS", value: "MICRO_SERVICES", icon: Cpu },
+          { label: "DATA_STREAMS", value: "100%_UPTIME", icon: Github }
         ].map((stat, i) => (
-          <div key={i} className="p-6 border border-brand-border bg-brand-surface group hover:border-brand-accent/50 transition-all">
-            <div className="flex items-center justify-between mb-4">
-              <stat.icon size={20} className="text-brand-accent" />
-              <span className="text-[10px] font-mono text-brand-muted uppercase">Status: OK</span>
+          <div key={i} className="p-8 border border-brand-border bg-brand-surface hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 group">
+            <div className="flex items-center justify-between mb-8">
+              <stat.icon size={18} className="text-brand-accent group-hover:text-brand-bg" />
             </div>
-            <p className="text-[10px] font-mono text-brand-muted mb-1">{stat.label}</p>
-            <p className="text-2xl font-bold font-mono">{stat.value}</p>
+            <p className="text-[10px] font-mono text-brand-muted group-hover:text-brand-bg/70 mb-1">{stat.label}</p>
+            <p className="text-lg font-bold font-mono">{stat.value}</p>
           </div>
         ))}
       </section>
@@ -63,24 +62,24 @@ export const Home: React.FC = () => {
       {/* Featured Projects Highlight */}
       <section className="space-y-12">
         <div className="flex items-center justify-between border-b border-brand-border pb-4">
-          <h2 className="font-mono text-sm font-bold">LATEST_PROJECTS.LOG</h2>
-          <Link to="/projects" className="text-brand-accent text-[10px] font-mono hover:underline">VIEW_ALL_REPOS</Link>
+          <h2 className="font-mono text-[10px] font-bold tracking-widest text-brand-muted">LATEST_DEPLOYS.LOG</h2>
+          <Link to="/projects" className="text-brand-accent text-[9px] font-mono hover:underline">EXTRACT_ALL_DATA</Link>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-brand-border">
           {featuredProjects.map((p) => (
-            <Link key={p.id} to={`/projects/${p.slug}`} className="group block border border-brand-border p-8 bg-brand-surface hover:bg-white/[0.02] transition-all">
-              <div className="flex justify-between items-start mb-6">
-                <span className="text-[10px] font-mono text-brand-accent border border-brand-accent/30 px-2 py-0.5">ID: {p.id.toString().padStart(3, '0')}</span>
-                <span className="text-[10px] font-mono text-brand-muted">{p.tags[0]}</span>
+            <Link key={p.id} to={`/projects/${p.slug}`} className="group block p-12 bg-brand-bg hover:bg-brand-surface transition-all">
+              <div className="flex justify-between items-start mb-8">
+                <span className="text-[9px] font-mono text-brand-muted border border-brand-border px-2 py-0.5">UID: {p.id}</span>
+                <span className="text-[9px] font-mono text-brand-muted uppercase tracking-widest">{p.tags[0]}</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4 font-mono group-hover:text-brand-accent transition-colors">{p.title}</h3>
-              <p className="text-brand-muted text-sm leading-relaxed mb-8 line-clamp-2">
+              <h3 className="text-3xl font-bold mb-4 font-mono group-hover:underline">{p.title}</h3>
+              <p className="text-brand-muted text-sm leading-relaxed mb-10 line-clamp-2 font-sans">
                 {p.description}
               </p>
-              <div className="flex items-center text-xs font-mono text-brand-accent group-hover:translate-x-2 transition-transform">
-                <span>ANALYSIS_REPORT</span>
-                <ArrowRight size={14} className="ml-2" />
+              <div className="flex items-center text-[10px] font-mono text-brand-accent">
+                <span>VIEW_TECHNICAL_DEBT</span>
+                <ArrowRight size={12} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           ))}

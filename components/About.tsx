@@ -2,7 +2,8 @@
 import React from 'react';
 import { User, Cpu, Server, Code } from 'lucide-react';
 
-const SkillTag = ({ children }: { children: React.ReactNode }) => (
+// Explicitly typing SkillTag as React.FC allows React's reserved props like 'key' to be handled correctly by TypeScript
+const SkillTag: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <span className="px-3 py-1 rounded-full bg-brand-surface border border-white/10 text-xs font-mono text-brand-muted hover:text-brand-accent hover:border-brand-accent/50 transition-colors cursor-default">
     {children}
   </span>

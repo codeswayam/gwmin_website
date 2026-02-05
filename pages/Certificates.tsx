@@ -7,42 +7,40 @@ import { Certificate } from '../types';
 
 export const Certificates: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-4">Professional <span className="text-brand-accent">Certifications</span></h1>
-        <p className="text-brand-muted">Validated expertise in industry-standard security and backend practices.</p>
-      </div>
+    <div className="max-w-7xl mx-auto px-4 py-16">
+      <header className="mb-16 border-b border-brand-border pb-8">
+        <h1 className="text-4xl font-mono font-bold tracking-tighter uppercase">Vault // Credentials</h1>
+        <p className="text-brand-muted mt-2 font-mono text-[10px] uppercase tracking-widest">Validated certification data and identity proofs.</p>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border border border-brand-border">
         {(certificatesData as Certificate[]).map((cert) => (
-          <div key={cert.id} className="group bg-brand-surface rounded-2xl border border-white/5 hover:border-brand-accent/50 transition-all flex flex-col p-6">
-            <div className="bg-brand-bg p-4 rounded-xl mb-6 flex items-center justify-center text-brand-muted group-hover:text-brand-accent transition-colors">
-              <FileText size={64} />
+          <div key={cert.id} className="group bg-brand-bg p-10 flex flex-col hover:bg-brand-surface transition-all">
+            <div className="flex items-center justify-between mb-10">
+              <span className="text-[8px] font-mono text-brand-muted border border-brand-border px-2 py-0.5 tracking-tighter">CERT_ID_{cert.id}</span>
+              <span className="text-[10px] font-mono font-bold text-brand-accent">{cert.year}</span>
+            </div>
+
+            <div className="flex-grow space-y-4">
+              <h3 className="text-xl font-bold font-mono tracking-tight leading-tight group-hover:underline">{cert.name}</h3>
+              <p className="text-[10px] font-mono text-brand-muted uppercase tracking-widest">{cert.issuer}</p>
             </div>
             
-            <div className="flex-grow">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-brand-muted">{cert.issuer}</span>
-                <span className="text-xs font-bold text-brand-accent">{cert.year}</span>
-              </div>
-              <h3 className="text-lg font-bold mb-6">{cert.name}</h3>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3 pt-6 border-t border-white/5">
+            <div className="grid grid-cols-2 gap-px bg-brand-border mt-12 pt-0.5">
               <Link 
                 to={`/certificates/${cert.id}`}
-                className="flex items-center justify-center space-x-2 text-xs font-bold py-2.5 rounded bg-brand-accent/10 text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all"
+                className="flex items-center justify-center space-x-2 text-[10px] font-mono font-bold py-4 bg-brand-bg text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all uppercase tracking-widest"
               >
-                <Eye size={14} />
-                <span>View PDF</span>
+                <Eye size={12} />
+                <span>INSPECT</span>
               </Link>
               <a 
                 href={cert.file}
                 download
-                className="flex items-center justify-center space-x-2 text-xs font-bold py-2.5 rounded bg-white/5 text-brand-text hover:bg-white/10 transition-all"
+                className="flex items-center justify-center space-x-2 text-[10px] font-mono py-4 bg-brand-bg text-brand-muted hover:text-brand-accent transition-all uppercase tracking-widest"
               >
-                <Download size={14} />
-                <span>Download</span>
+                <Download size={12} />
+                <span>SAVE</span>
               </a>
             </div>
           </div>

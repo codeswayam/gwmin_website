@@ -6,9 +6,9 @@ import { ResumeData } from '../types';
 
 export const Resume: React.FC = () => {
   const versions = [
-    { id: 'default', label: 'General / Full-Stack' },
-    { id: 'security', label: 'Cybersecurity Focus' },
-    { id: 'backend', label: 'Backend Engineering Focus' }
+    { id: 'default', label: 'GEN_SYSTEMS' },
+    { id: 'security', label: 'CYBER_SEC_OPS' },
+    { id: 'backend', label: 'BACKEND_INFRA' }
   ];
   
   const [activeVersion, setActiveVersion] = useState<keyof ResumeData>('default');
@@ -17,25 +17,25 @@ export const Resume: React.FC = () => {
   const currentFile = (resumesData as ResumeData)[activeVersion];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col h-[calc(100vh-120px)]">
-      <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 space-y-6 md:space-y-0">
+    <div className="max-w-6xl mx-auto px-4 py-16 flex flex-col h-[calc(100vh-140px)]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 space-y-8 md:space-y-0 border-b border-brand-border pb-8">
         <div>
-          <h1 className="text-4xl font-bold mb-2">Curriculum <span className="text-brand-accent">Vitae</span></h1>
-          <p className="text-brand-muted">Select a version optimized for specific roles.</p>
+          <h1 className="text-4xl font-mono font-bold tracking-tighter uppercase">Doc // Resume</h1>
+          <p className="text-brand-muted mt-2 font-mono text-[10px] uppercase tracking-widest">Select relevant schema for targeted assessment.</p>
         </div>
         
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-6">
           <div className="relative">
             <button 
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center justify-between w-64 px-4 py-3 bg-brand-surface border border-white/10 rounded-lg text-left text-sm font-bold focus:border-brand-accent transition-all"
+              className="flex items-center justify-between w-56 px-4 py-3 bg-brand-surface border border-brand-border rounded-none text-left text-[10px] font-mono font-bold hover:border-brand-accent transition-all uppercase tracking-widest"
             >
               <span>{versions.find(v => v.id === activeVersion)?.label}</span>
-              <ChevronDown size={18} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
             {dropdownOpen && (
-              <div className="absolute z-50 top-full mt-2 w-full bg-brand-surface border border-white/10 rounded-lg shadow-2xl overflow-hidden py-1 animate-in fade-in zoom-in-95 duration-100">
+              <div className="absolute z-50 top-full mt-1 w-full bg-brand-surface border border-brand-border rounded-none shadow-2xl overflow-hidden py-1">
                 {versions.map(v => (
                   <button
                     key={v.id}
@@ -43,8 +43,8 @@ export const Resume: React.FC = () => {
                       setActiveVersion(v.id as keyof ResumeData);
                       setDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2.5 text-sm hover:bg-brand-accent/10 hover:text-brand-accent transition-colors ${
-                      activeVersion === v.id ? 'text-brand-accent bg-brand-accent/5' : 'text-brand-muted'
+                    className={`w-full text-left px-4 py-2 text-[9px] font-mono uppercase tracking-widest hover:bg-brand-accent hover:text-brand-bg transition-colors ${
+                      activeVersion === v.id ? 'text-brand-accent bg-white/5' : 'text-brand-muted'
                     }`}
                   >
                     {v.label}
@@ -55,26 +55,26 @@ export const Resume: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <a href={currentFile} target="_blank" rel="noopener noreferrer" className="p-3 bg-brand-surface border border-white/10 rounded-lg text-brand-muted hover:text-brand-accent transition-all" title="Fullscreen">
-              <Maximize2 size={20} />
+            <a href={currentFile} target="_blank" rel="noopener noreferrer" className="p-3 bg-brand-surface border border-brand-border text-brand-muted hover:text-brand-accent transition-all" title="Fullscreen">
+              <Maximize2 size={16} />
             </a>
-            <a href={currentFile} download className="flex items-center space-x-2 bg-brand-accent text-brand-bg px-6 py-3 rounded-lg font-bold hover:scale-[1.02] transition-all">
-              <Download size={18} />
-              <span>Download PDF</span>
+            <a href={currentFile} download className="flex items-center space-x-4 bg-brand-accent text-brand-bg px-8 py-3 font-mono text-[10px] font-bold hover:bg-brand-muted transition-all uppercase tracking-widest">
+              <Download size={14} />
+              <span>SAVE_DOCUMENT</span>
             </a>
           </div>
         </div>
       </div>
 
-      <div className="flex-grow bg-[#323639] rounded-2xl border border-white/10 overflow-hidden shadow-2xl relative">
+      <div className="flex-grow bg-[#111111] border border-brand-border overflow-hidden relative group">
         <iframe
           src={`${currentFile}#toolbar=0&navpanes=0`}
-          className="w-full h-full border-none"
+          className="w-full h-full border-none grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
           title="Resume Viewer"
           key={activeVersion}
         />
-        <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-[10px] font-mono text-white/50 pointer-events-none md:hidden uppercase tracking-widest">
-          Scroll inside to view
+        <div className="absolute top-4 left-4 bg-brand-bg/80 backdrop-blur px-2 py-1 font-mono text-[8px] text-brand-muted uppercase pointer-events-none tracking-widest border border-brand-border">
+          READ_ONLY_ACCESS
         </div>
       </div>
     </div>

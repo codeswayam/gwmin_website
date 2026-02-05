@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { ShieldAlert, ChevronDown, ChevronUp, Lock, Zap, FileJson, Globe, Key } from 'lucide-react';
 
-const MindsetCard = ({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) => (
+// Explicitly typing MindsetCard as React.FC allows React's reserved props like 'key' to be handled correctly by TypeScript
+const MindsetCard: React.FC<{ icon: any, title: string, desc: string }> = ({ icon: Icon, title, desc }) => (
   <div className="p-6 bg-brand-surface border border-white/5 rounded-xl hover:border-brand-accent/30 transition-all group">
     <div className="text-brand-accent mb-4 group-hover:scale-110 transition-transform">
       <Icon size={24} />
